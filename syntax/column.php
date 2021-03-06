@@ -24,10 +24,58 @@ class syntax_plugin_bootswrapper_column extends syntax_plugin_bootswrapper_boots
             'required' => false,
             'default'  => null),
 
+        'lg-push' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+
+        'lg-pull' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
+        'lg-offset' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
         'md' => array(
             'type'     => 'integer',
             'values'   => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
             'min'      => 1,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
+        'md-push' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
+        'md-pull' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
+        'md-offset' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
             'max'      => 12,
             'required' => false,
             'default'  => null),
@@ -40,6 +88,30 @@ class syntax_plugin_bootswrapper_column extends syntax_plugin_bootswrapper_boots
             'required' => false,
             'default'  => null),
 
+        'sm-push' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+
+        'sm-pull' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
+        'sm-offset' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
         'xs' => array(
             'type'     => 'integer',
             'values'   => array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
@@ -48,6 +120,30 @@ class syntax_plugin_bootswrapper_column extends syntax_plugin_bootswrapper_boots
             'required' => false,
             'default'  => null),
 
+        'xs-push' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+
+        'xs-pull' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
+        'xs-offset' => array(
+            'type'     => 'integer',
+            'values'   => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+            'min'      => 0,
+            'max'      => 12,
+            'required' => false,
+            'default'  => null),
+        
     );
 
     public function render($mode, Doku_Renderer $renderer, $data)
@@ -67,7 +163,7 @@ class syntax_plugin_bootswrapper_column extends syntax_plugin_bootswrapper_boots
         if ($state == DOKU_LEXER_ENTER) {
             $col = '';
 
-            foreach (array('lg', 'md', 'sm', 'xs') as $device) {
+            foreach (array('lg', 'lg-push', 'lg-pull', 'lg-offset', 'md', 'md-push', 'md-pull', 'md-offset', 'sm', 'sm-push', 'sm-pull', 'sm-offset', 'xs', 'xs-push', 'xs-pull', 'xs-offset') as $device) {
                 $col .= isset($attributes[$device]) ? "col-$device-{$attributes[$device]} " : '';
             }
 
